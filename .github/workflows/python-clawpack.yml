@@ -53,7 +53,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./docker/python-clawpack.Dockerfile
+          file: ./images/docker/python-clawpack.Dockerfile
           platforms: linux/amd64
           push: true
           tags: ghcr.io/cm032/images/python-clawpack:latest
