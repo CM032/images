@@ -15,8 +15,8 @@ ARG EXTRA_AUR_PACKAGES="\
   jupyter-nbgrader \
   jupyterlab-pytutor \
   jupyterlab-rise \
-  nbqa \
   otf-intel-one-mono \
+  nbqa \
   python-jupyterlab-variableinspector \
   pyupgrade \
   "
