@@ -12,13 +12,13 @@ ARG AUR_PACKAGES="\
   "
 
 ARG EXTRA_AUR_PACKAGES="\
-  nbqa \
   jupyter-nbgrader \
   jupyterlab-pytutor \
   jupyterlab-rise \
+  nbqa \
   otf-intel-one-mono \
-  pyupgrade \
   python-jupyterlab-variableinspector \
+  pyupgrade \
   "
 
 RUN curl -s https://gitlab.com/dune-archiso/dune-archiso.gitlab.io/-/raw/main/templates/add_arch4edu.sh | bash && \
