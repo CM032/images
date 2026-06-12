@@ -5,8 +5,6 @@ FROM ghcr.io/cpp-review-dune/introductory-review/aur AS build
 ARG OPT_PACKAGES="\
   blas-openblas \
   intel-oneapi-basekit \
-  python-numpy-mkl \
-  python-scipy-mkl \
   "
 
 ARG AUR_PACKAGES="\
@@ -77,6 +75,9 @@ ARG PACKAGES="\
   python-jupyter-server-terminals \
   python-pandas \
   python-threadpoolctl \
+  blas-openblas \
+  python-numpy-mkl \
+  python-scipy-mkl \
   "
 
 COPY --from=build /tmp/*.log /tmp/
