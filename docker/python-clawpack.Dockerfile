@@ -15,8 +15,8 @@ ARG EXTRA_AUR_PACKAGES="\
   jupyter-nbgrader \
   jupyterlab-pytutor \
   jupyterlab-rise \
-  otf-intel-one-mono \
   nbqa \
+  otf-intel-one-mono \
   python-jupyterlab-variableinspector \
   pyupgrade \
   "
@@ -65,6 +65,7 @@ USER $USERNAME
 
 ARG PACKAGES="\
   ffmpeg \
+  git \
   jupyterlab-widgets \
   python-black \
   python-isort \
