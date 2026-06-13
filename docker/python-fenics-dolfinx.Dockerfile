@@ -2,15 +2,6 @@
 
 FROM ghcr.io/cpp-review-dune/introductory-review/aur AS build
 
-ARG OPT_PACKAGES="\
-  blas-openblas \
-  intel-oneapi-basekit \
-  "
-
-ARG AUR_PACKAGES="\
-  python-adios4dolfinx \
-  "
-
 ARG EXTRA_AUR_PACKAGES="\
   jupyter-nbgrader \
   jupyterlab-pytutor \
@@ -21,11 +12,8 @@ ARG EXTRA_AUR_PACKAGES="\
   pyupgrade \
   "
 
-RUN curl -s https://gitlab.com/dune-archiso/dune-archiso.gitlab.io/-/raw/main/templates/add_arch4edu.sh | bash && \
-  yay --repo --needed --noconfirm --noprogressbar -Syuq >/dev/null 2>&1 && \
+RUN yay --repo --needed --noconfirm --noprogressbar -Syuq >/dev/null 2>&1 && \
   yay --repo --needed --noconfirm --noprogressbar -S ${OPT_PACKAGES} >/dev/null 2>&1 && \
-  yay --mflags --nocheck --needed --noconfirm --noprogressbar -S petsc >/dev/null 2>&1 && \
-  yay --mflags --nocheck --needed --noconfirm --noprogressbar -S ${AUR_PACKAGES} >/dev/null 2>&1 && \
   yay --mflags --nocheck --needed --noconfirm --noprogressbar -S ${EXTRA_AUR_PACKAGES} 2>&1 | tee -a /tmp/$(date -u +"%Y-%m-%d-%H-%M-%S" --date='5 hours ago').log >/dev/null
 
 LABEL maintainer="Carlos Aznarán <caznaranl@uni.pe>" \
@@ -85,6 +73,8 @@ ARG PACKAGES="\
   jupyter-collaboration \
   xorg-fonts-100dpi \
   xorg-server-xvfb \
+  less \
+  bat \
   "
 
 ARG VTK_PACKAGES="\
