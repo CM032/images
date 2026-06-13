@@ -80,8 +80,6 @@ ARG PACKAGES="\
   gmsh \
   python-pyvista \
   python-trame \
-  python-trame-jupyter-extension \
-  python-trame-matplotlib \
   python-trame-vtk \
   python-trame-vuetify \
   jupyter-collaboration \
