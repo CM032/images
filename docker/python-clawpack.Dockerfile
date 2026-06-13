@@ -58,20 +58,23 @@ RUN ln -s /usr/share/zoneinfo/America/Lima /etc/localtime && \
 USER $USERNAME
 
 ARG PACKAGES="\
+  bat \
+  blas-openblas \
   ffmpeg \
   git \
+  intel-oneapi-basekit \
   jupyterlab-widgets \
+  less \
+  petsc \
   python-black \
   python-isort \
   python-ipympl \
   python-jupyter-server-terminals \
-  python-pandas \
-  python-threadpoolctl \
-  blas-openblas \
   python-numpy-mkl \
+  python-pandas \
+  python-pytest \
   python-scipy-mkl \
-  intel-oneapi-basekit \
-  petsc \
+  python-threadpoolctl \
   "
 
 COPY --from=build /tmp/*.log /tmp/
