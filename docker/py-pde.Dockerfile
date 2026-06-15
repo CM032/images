@@ -65,6 +65,7 @@ ARG PACKAGES="\
   jupyterlab-widgets \
   less \
   python-black \
+  python-h5py-openmpi \
   python-isort \
   python-ipympl \
   python-jupyter-server-terminals \

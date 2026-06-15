@@ -17,9 +17,9 @@ RUN yay --repo --needed --noconfirm --noprogressbar -Syuq >/dev/null 2>&1 && \
   yay --mflags --nocheck --needed --noconfirm --noprogressbar -S ${EXTRA_AUR_PACKAGES} 2>&1 | tee -a /tmp/$(date -u +"%Y-%m-%d-%H-%M-%S" --date='5 hours ago').log >/dev/null
 
 LABEL maintainer="Carlos Aznarán <caznaranl@uni.pe>" \
-  name="CM032" \
-  description="Clawpack packages for CM032" \
-  url="https://github.com/orgs/cm032/packages/container/package/images%2Fclawpack" \
+  name="deal.II" \
+  description="deal.II package for CM032" \
+  url="https://github.com/orgs/cm032/packages/container/package/images%2Fdeal-ii" \
   vcs-url="https://github.com/cm032/images" \
   vendor="Oromion Aznarán" \
   version="1.0"
@@ -53,6 +53,7 @@ RUN ln -s /usr/share/zoneinfo/America/Lima /etc/localtime && \
 USER $USERNAME
 
 ARG PACKAGES="\
+  deal-ii \
   ffmpeg \
   git \
   jupyterlab-widgets \
