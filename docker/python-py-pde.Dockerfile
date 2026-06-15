@@ -61,11 +61,9 @@ ARG PACKAGES="\
   ffmpeg \
   blas-openblas \
   git \
-  intel-oneapi-basekit \
   jupyterlab-widgets \
   less \
   python-black \
-  python-h5py-openmpi \
   python-isort \
   python-ipympl \
   python-jupyter-server-terminals \
