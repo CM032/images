@@ -58,8 +58,8 @@ USER $USERNAME
 
 ARG PACKAGES="\
   bat \
-  blas-openblas \
   ffmpeg \
+  blas-openblas \
   git \
   intel-oneapi-basekit \
   jupyterlab-widgets \
