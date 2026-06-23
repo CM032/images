@@ -61,6 +61,7 @@ ARG PACKAGES="\
   bat \
   blas-openblas \
   ffmpeg \
+  gemini-cli \
   git \
   intel-oneapi-basekit \
   jupyterlab-widgets \

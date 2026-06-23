@@ -60,6 +60,7 @@ ARG PACKAGES="\
   bat \
   ffmpeg \
   blas-openblas \
+  gemini-cli \
   git \
   jupyterlab-widgets \
   less \

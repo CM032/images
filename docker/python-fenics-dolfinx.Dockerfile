@@ -54,6 +54,7 @@ USER $USERNAME
 
 ARG PACKAGES="\
   ffmpeg \
+  gemini-cli \
   git \
   jupyterlab-widgets \
   python-black \

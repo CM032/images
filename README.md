@@ -10,25 +10,25 @@ This repository contains **Docker images** for scientific computing and developm
 
 All images share a common foundation:
 
-| Attribute | Details |
-|---|---|
-| **Base image** | `archlinux:base-devel` |
-| **Platform** | `linux/amd64` |
-| **Default user** | `vscode` (UID/GID 1000, passwordless sudo) |
-| **Working directory** | `/workspaces` |
-| **Exposed port** | `8888/tcp` (JupyterLab) |
-| **Maintenance** | [Carlos Aznarán](mailto:caznaranl@uni.pe) |
+| Attribute             | Details                                    |
+| --------------------- | ------------------------------------------ |
+| **Base image**        | `archlinux:base-devel`                     |
+| **Platform**          | `linux/amd64`                              |
+| **Default user**      | `vscode` (UID/GID 1000, passwordless sudo) |
+| **Working directory** | `/workspaces`                              |
+| **Exposed port**      | `8888/tcp` (JupyterLab)                    |
+| **Maintenance**       | [Carlos Aznarán](mailto:caznaranl@uni.pe)  |
 
 > For multi-stage build architecture, environment variables, build arguments, layer caching, and extending images, see the [technical README](docker/README.md).
 
 ## Available Images
 
-| Image | Registry | Focus |
-|---|---|---|
-| [python-clawpack](#python-clawpack) | `ghcr.io/cm032/images/python-clawpack:latest` | Hyperbolic PDEs with Clawpack |
-| [python-py-pde](#python-py-pde) | `ghcr.io/cm032/images/python-py-pde:latest` | PDEs on regular grids with py-pde |
+| Image                                           | Registry                                            | Focus                                           |
+| ----------------------------------------------- | --------------------------------------------------- | ----------------------------------------------- |
+| [python-clawpack](#python-clawpack)             | `ghcr.io/cm032/images/python-clawpack:latest`       | Hyperbolic PDEs with Clawpack                   |
+| [python-py-pde](#python-py-pde)                 | `ghcr.io/cm032/images/python-py-pde:latest`         | PDEs on regular grids with py-pde               |
 | [python-fenics-dolfinx](#python-fenics-dolfinx) | `ghcr.io/cm032/images/python-fenics-dolfinx:latest` | FEM workflows with meshing and 3D visualization |
-| [deal-ii](#deal-ii) | `ghcr.io/cm032/images/deal-ii:latest` | Finite elements with deal.II |
+| [deal-ii](#deal-ii)                             | `ghcr.io/cm032/images/deal-ii:latest`               | Finite elements with deal.II                    |
 
 ### python-clawpack
 
@@ -125,12 +125,12 @@ docker run --rm -it \
 
 Each image has its own GitHub Actions workflow under `.github/workflows/`:
 
-| Workflow | Dockerfile | GHCR tag |
-|---|---|---|
-| `python-clawpack.yml` | `docker/python-clawpack.Dockerfile` | `ghcr.io/cm032/images/python-clawpack:latest` |
-| `python-py-pde.yml` | `docker/python-py-pde.Dockerfile` | `ghcr.io/cm032/images/python-py-pde:latest` |
+| Workflow                    | Dockerfile                                | GHCR tag                                            |
+| --------------------------- | ----------------------------------------- | --------------------------------------------------- |
+| `python-clawpack.yml`       | `docker/python-clawpack.Dockerfile`       | `ghcr.io/cm032/images/python-clawpack:latest`       |
+| `python-py-pde.yml`         | `docker/python-py-pde.Dockerfile`         | `ghcr.io/cm032/images/python-py-pde:latest`         |
 | `python-fenics-dolfinx.yml` | `docker/python-fenics-dolfinx.Dockerfile` | `ghcr.io/cm032/images/python-fenics-dolfinx:latest` |
-| `deal-ii.yml` | `docker/deal-ii.Dockerfile` | `ghcr.io/cm032/images/deal-ii:latest` |
+| `deal-ii.yml`               | `docker/deal-ii.Dockerfile`               | `ghcr.io/cm032/images/deal-ii:latest`               |
 
 **Triggers** (per workflow):
 
