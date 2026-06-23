@@ -4,12 +4,12 @@
 
 This document describes the internal design, build pipeline, and runtime configuration of the **CM032 Docker images**. All images are built on **Arch Linux** and provide JupyterLab-based scientific computing environments.
 
-| Image | Registry | Dockerfile |
-|---|---|---|
-| python-clawpack | `ghcr.io/cm032/images/python-clawpack:latest` | `python-clawpack.Dockerfile` |
-| python-py-pde | `ghcr.io/cm032/images/python-py-pde:latest` | `python-py-pde.Dockerfile` |
+| Image                 | Registry                                            | Dockerfile                         |
+| --------------------- | --------------------------------------------------- | ---------------------------------- |
+| python-clawpack       | `ghcr.io/cm032/images/python-clawpack:latest`       | `python-clawpack.Dockerfile`       |
+| python-py-pde         | `ghcr.io/cm032/images/python-py-pde:latest`         | `python-py-pde.Dockerfile`         |
 | python-fenics-dolfinx | `ghcr.io/cm032/images/python-fenics-dolfinx:latest` | `python-fenics-dolfinx.Dockerfile` |
-| deal-ii | `ghcr.io/cm032/images/deal-ii:latest` | `deal-ii.Dockerfile` |
+| deal-ii               | `ghcr.io/cm032/images/deal-ii:latest`               | `deal-ii.Dockerfile`               |
 
 **Maintainer**: [Carlos Aznarán](mailto:caznaranl@uni.pe)
 
@@ -50,24 +50,24 @@ This stage uses a pre-configured AUR builder image to compile packages not avail
 
 Installed in all images:
 
-| Package | Purpose |
-|---|---|
-| `jupyter-nbgrader` | Notebook grading |
-| `jupyterlab-pytutor` | Python tutor integration |
-| `jupyterlab-rise` | Reveal.js slideshows |
-| `nbqa` | Run QA tools on Jupyter notebooks |
-| `otf-intel-one-mono` | Intel One Mono font |
-| `python-jupyterlab-variableinspector` | Variable inspection |
-| `pyupgrade` | Modern Python syntax migration |
+| Package                               | Purpose                           |
+| ------------------------------------- | --------------------------------- |
+| `jupyter-nbgrader`                    | Notebook grading                  |
+| `jupyterlab-pytutor`                  | Python tutor integration          |
+| `jupyterlab-rise`                     | Reveal.js slideshows              |
+| `nbqa`                                | Run QA tools on Jupyter notebooks |
+| `otf-intel-one-mono`                  | Intel One Mono font               |
+| `python-jupyterlab-variableinspector` | Variable inspection               |
+| `pyupgrade`                           | Modern Python syntax migration    |
 
 #### Image-Specific AUR Packages (`AUR_PACKAGES`)
 
-| Image | `AUR_PACKAGES` |
-|---|---|
-| python-clawpack | `python-clawpack`, `jupyter-octave_kernel` |
-| python-py-pde | `python-py-pde` |
-| python-fenics-dolfinx | *(none — only `EXTRA_AUR_PACKAGES`)* |
-| deal-ii | *(none — only `EXTRA_AUR_PACKAGES`)* |
+| Image                 | `AUR_PACKAGES`                           |
+| --------------------- | ---------------------------------------- |
+| python-clawpack       | `python-clawpack`                        |
+| python-py-pde         | `python-py-pde`, `jupyter-octave_kernel` |
+| python-fenics-dolfinx | *(none — only `EXTRA_AUR_PACKAGES`)*     |
+| deal-ii               | *(none — only `EXTRA_AUR_PACKAGES`)*     |
 
 The build process:
 
@@ -83,32 +83,32 @@ A clean `archlinux:base-devel` image that receives only the pre-compiled artifac
 
 All images include:
 
-| Package | Purpose |
-|---|---|
-| `bat` | Syntax-highlighted file viewer |
-| `blas-openblas` | Optimized BLAS/LAPACK |
-| `ffmpeg` | Multimedia processing |
-| `git` | Version control |
-| `jupyterlab-widgets` | Interactive Jupyter widgets |
-| `less` | Pager |
-| `python-black` | Code formatter |
-| `python-isort` | Import sorter |
-| `python-ipympl` | Interactive Matplotlib plots |
-| `python-jupyter-server-terminals` | Terminal access in JupyterLab |
-| `python-numpy-mkl` | NumPy with Intel MKL |
-| `python-pandas` | Data analysis |
-| `python-scipy-mkl` | SciPy with Intel MKL |
-| `python-threadpoolctl` | Threadpool control for BLAS |
+| Package                                | Purpose                                          |
+| -------------------------------------- | ------------------------------------------------ |
+| `bat`                                  | Syntax-highlighted file viewer                   |
+| `blas-openblas`                        | Optimized BLAS/LAPACK                            |
+| `ffmpeg`                               | Multimedia processing                            |
+| `git`                                  | Version control                                  |
+| `jupyterlab-widgets`                   | Interactive Jupyter widgets                      |
+| `less`                                 | Pager                                            |
+| `python-black`                         | Code formatter                                   |
+| `python-isort`                         | Import sorter                                    |
+| `python-ipympl`                        | Interactive Matplotlib plots                     |
+| `python-jupyter-server-terminals`      | Terminal access in JupyterLab                    |
+| `python-numpy-mkl`                     | NumPy with Intel MKL                             |
+| `python-pandas`                        | Data analysis                                    |
+| `python-scipy-mkl`                     | SciPy with Intel MKL                             |
+| `python-threadpoolctl`                 | Threadpool control for BLAS                      |
 | *(prebuilt .pkg.tar.zst from Stage 1)* | Jupyter extensions + image-specific AUR packages |
 
 #### Image-Specific Runtime Packages
 
-| Image | Additional packages |
-|---|---|
-| python-clawpack | `intel-oneapi-basekit`, `petsc`, `python-pytest` |
-| python-py-pde | `python-pytest` |
-| python-fenics-dolfinx | `gmsh`, `python-pyvista`, `python-trame`, `python-trame-vtk`, `python-trame-vuetify`, `jupyter-collaboration`, `xorg-fonts-100dpi`, `xorg-server-xvfb` |
-| deal-ii | `deal-ii`, `gmsh`, `python-pyvista`, `python-trame`, `python-trame-vtk`, `python-trame-vuetify`, `jupyter-collaboration`, `xorg-fonts-100dpi`, `xorg-server-xvfb` |
+| Image                 | Additional packages                                                                                                                                               |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| python-clawpack       | `python-pytest`                                                                                                                                                   |
+| python-py-pde         | `python-pytest`                                                                                                                                                   |
+| python-fenics-dolfinx | `gmsh`, `python-pyvista`, `python-trame`, `python-trame-vtk`, `python-trame-vuetify`, `jupyter-collaboration`, `xorg-fonts-100dpi`, `xorg-server-xvfb`            |
+| deal-ii               | `deal-ii`, `gmsh`, `python-pyvista`, `python-trame`, `python-trame-vtk`, `python-trame-vuetify`, `jupyter-collaboration`, `xorg-fonts-100dpi`, `xorg-server-xvfb` |
 
 > **Note**: `python-fenics-dolfinx.Dockerfile` and `deal-ii.Dockerfile` define a `VTK_PACKAGES` ARG that is not currently referenced in the install step.
 
@@ -130,18 +130,18 @@ This provides access to educational and scientific packages not in the official 
 
 Multiple `sed` modifications tune `pacman.conf` for faster package management:
 
-| Change | Effect |
-|---|---|
-| `Color` enabled | Colored output |
-| `DisableSandbox` | Avoids sandbox issues in container environments |
-| `DownloadUser` | Allows pacman as root without sandbox |
-| `ILoveCandy` | Progress bar eye candy |
-| `ParallelDownloads = 30` | Downloads up to 30 packages concurrently |
-| `VerbosePkgLists` disabled | Quieter output |
-| `/usr/share/doc/*` and `/usr/share/man/*` removed | Reduces image size |
-| Multilib repository enabled | 32-bit library support |
-| `MAKEFLAGS="-j$(nproc)"` | Parallel compilation |
-| `BUILDDIR` enabled | Custom build directory in `makepkg.conf` |
+| Change                                            | Effect                                          |
+| ------------------------------------------------- | ----------------------------------------------- |
+| `Color` enabled                                   | Colored output                                  |
+| `DisableSandbox`                                  | Avoids sandbox issues in container environments |
+| `DownloadUser`                                    | Allows pacman as root without sandbox           |
+| `ILoveCandy`                                      | Progress bar eye candy                          |
+| `ParallelDownloads = 30`                          | Downloads up to 30 packages concurrently        |
+| `VerbosePkgLists` disabled                        | Quieter output                                  |
+| `/usr/share/doc/*` and `/usr/share/man/*` removed | Reduces image size                              |
+| Multilib repository enabled                       | 32-bit library support                          |
+| `MAKEFLAGS="-j$(nproc)"`                          | Parallel compilation                            |
+| `BUILDDIR` enabled                                | Custom build directory in `makepkg.conf`        |
 
 ### User Setup
 
@@ -173,17 +173,12 @@ This ensures:
 
 #### Shared
 
-| Variable | Value | Purpose |
-|---|---|---|
-| `MKL_THREADING_LAYER` | `gnu` | MKL threading compatibility |
-| `PYDEVD_DISABLE_FILE_VALIDATION` | `1` | Disables file validation in the Python debugger |
+| Variable                         | Value | Purpose                                         |
+| -------------------------------- | ----- | ----------------------------------------------- |
+| `MKL_THREADING_LAYER`            | `gnu` | MKL threading compatibility                     |
+| `PYDEVD_DISABLE_FILE_VALIDATION` | `1`   | Disables file validation in the Python debugger |
 
 #### python-clawpack
-
-| Variable | Value | Purpose |
-|---|---|---|
-| `PETSC_DIR` | `/opt/petsc/linux-c-opt` | PETSc installation path |
-| `PYTHONPATH` | `$PETSC_DIR/lib` | PETSc Python bindings |
 
 Additionally, the Octave kernel is installed at build time:
 
@@ -193,22 +188,22 @@ python -m octave_kernel install --user
 
 #### python-py-pde
 
-| Variable | Value | Purpose |
-|---|---|---|
+| Variable     | Value            | Purpose                                          |
+| ------------ | ---------------- | ------------------------------------------------ |
 | `PYTHONPATH` | `$PETSC_DIR/lib` | Inherited reference (no PETSc package installed) |
 
 #### python-fenics-dolfinx and deal-ii
 
-| Variable | Value | Purpose |
-|---|---|---|
-| `PYTHONPATH` | `/usr/share/gmsh/api/python` then `$PETSC_DIR/lib` | Gmsh Python API, then PETSc |
-| `TRAME_DISABLE_V3_WARNING` | `1` | Suppress Trame v3 deprecation warnings |
-| `DISPLAY` | `:99.0` | Virtual display for headless rendering |
-| `PYVISTA_OFF_SCREEN` | `true` | Off-screen PyVista rendering |
-| `PYVISTA_TRAME_SERVER_PROXY_PREFIX` | `/proxy/` | Jupyter proxy prefix for Trame |
-| `PYVISTA_TRAME_SERVER_PROXY_ENABLED` | `True` | Enable Trame proxy in Jupyter |
-| `PYVISTA_JUPYTER_BACKEND` | `trame` | Use Trame as PyVista Jupyter backend |
-| `PETSC_DIR` | `/opt/petsc/linux-c-opt` | PETSc path reference |
+| Variable                             | Value                                              | Purpose                                |
+| ------------------------------------ | -------------------------------------------------- | -------------------------------------- |
+| `PYTHONPATH`                         | `/usr/share/gmsh/api/python` then `$PETSC_DIR/lib` | Gmsh Python API, then PETSc            |
+| `TRAME_DISABLE_V3_WARNING`           | `1`                                                | Suppress Trame v3 deprecation warnings |
+| `DISPLAY`                            | `:99.0`                                            | Virtual display for headless rendering |
+| `PYVISTA_OFF_SCREEN`                 | `true`                                             | Off-screen PyVista rendering           |
+| `PYVISTA_TRAME_SERVER_PROXY_PREFIX`  | `/proxy/`                                          | Jupyter proxy prefix for Trame         |
+| `PYVISTA_TRAME_SERVER_PROXY_ENABLED` | `True`                                             | Enable Trame proxy in Jupyter          |
+| `PYVISTA_JUPYTER_BACKEND`            | `trame`                                            | Use Trame as PyVista Jupyter backend   |
+| `PETSC_DIR`                          | `/opt/petsc/linux-c-opt`                           | PETSc path reference                   |
 
 ---
 
@@ -216,14 +211,14 @@ python -m octave_kernel install --user
 
 ### Exposed Ports
 
-| Port | Service |
-|---|---|
+| Port       | Service                  |
+| ---------- | ------------------------ |
 | `8888/tcp` | JupyterLab web interface |
 
 ### Volumes
 
-| Mount Point | Recommendation |
-|---|---|
+| Mount Point   | Recommendation                             |
+| ------------- | ------------------------------------------ |
 | `/workspaces` | Working directory; mount your project here |
 
 ### Default Command
@@ -259,22 +254,22 @@ docker build \
 
 ### Build Arguments
 
-| Argument | Default | Description |
-|---|---|---|
+| Argument   | Default  | Description        |
+| ---------- | -------- | ------------------ |
 | `USERNAME` | `vscode` | Non-root user name |
-| `USER_UID` | `1000` | User UID |
-| `USER_GID` | `1000` | User GID |
+| `USER_UID` | `1000`   | User UID           |
+| `USER_GID` | `1000`   | User GID           |
 
 ### Layer Caching Strategy
 
 Each CI workflow uses Docker Buildx with a dedicated local cache directory:
 
-| Image | Cache path | Cache key prefix |
-|---|---|---|
-| python-clawpack | `/tmp/.buildx-python-clawpack-cache` | `${{ runner.os }}-buildx-python-clawpack-` |
-| python-py-pde | `/tmp/.buildx-python-py-pde-cache` | `${{ runner.os }}-buildx-python-py-pde-` |
+| Image                 | Cache path                                 | Cache key prefix                                 |
+| --------------------- | ------------------------------------------ | ------------------------------------------------ |
+| python-clawpack       | `/tmp/.buildx-python-clawpack-cache`       | `${{ runner.os }}-buildx-python-clawpack-`       |
+| python-py-pde         | `/tmp/.buildx-python-py-pde-cache`         | `${{ runner.os }}-buildx-python-py-pde-`         |
 | python-fenics-dolfinx | `/tmp/.buildx-python-fenics-dolfinx-cache` | `${{ runner.os }}-buildx-python-fenics-dolfinx-` |
-| deal-ii | `/tmp/.buildx-deal-ii-cache` | `${{ runner.os }}-buildx-deal-ii-` |
+| deal-ii               | `/tmp/.buildx-deal-ii-cache`               | `${{ runner.os }}-buildx-deal-ii-`               |
 
 - **Cache mode**: `max` (exports all layers, not just the final)
 - **Restore keys**: Falls back to the latest cache for the same image if no exact SHA match exists
@@ -287,11 +282,11 @@ Each image has a dedicated workflow in `.github/workflows/`.
 
 ### Trigger Events
 
-| Event | Condition |
-|---|---|
-| `push` | On `main` branch when the corresponding Dockerfile changes |
-| `pull_request` | Targeting `main` branch |
-| `schedule` | 1st day of every month at 02:00 UTC (`0 2 1 * *`) |
+| Event          | Condition                                                  |
+| -------------- | ---------------------------------------------------------- |
+| `push`         | On `main` branch when the corresponding Dockerfile changes |
+| `pull_request` | Targeting `main` branch                                    |
+| `schedule`     | 1st day of every month at 02:00 UTC (`0 2 1 * *`)          |
 
 ### Pipeline Steps
 
@@ -304,10 +299,10 @@ Each image has a dedicated workflow in `.github/workflows/`.
 
 ### Required Secrets
 
-| Secret | Purpose |
-|---|---|
-| `GITHUB_TOKEN` | Authentication for GHCR push (provided automatically by GitHub Actions) |
-| `PAT` | Personal Access Token with `delete:packages` scope for pruning untagged images |
+| Secret         | Purpose                                                                        |
+| -------------- | ------------------------------------------------------------------------------ |
+| `GITHUB_TOKEN` | Authentication for GHCR push (provided automatically by GitHub Actions)        |
+| `PAT`          | Personal Access Token with `delete:packages` scope for pruning untagged images |
 
 ---
 
@@ -365,13 +360,13 @@ docker build \
 
 ## Known Constraints
 
-| Constraint | Reason |
-|---|---|
-| `--nocheck` during AUR build | Tests are skipped to reduce build time; validate package functionality separately |
-| Single architecture (`linux/amd64`) | Arch Linux primarily targets x86_64; ARM builds are not currently supported |
-| Intel One Mono font only | Font choice is tied to the IPython profile; override via `ipython_config.py` |
-| Large image sizes | Intel oneAPI, PETSc, deal.II, and the Jupyter ecosystem add significant disk usage |
-| `VTK_PACKAGES` unused | Defined in `python-fenics-dolfinx` and `deal-ii` Dockerfiles but not installed |
+| Constraint                          | Reason                                                                             |
+| ----------------------------------- | ---------------------------------------------------------------------------------- |
+| `--nocheck` during AUR build        | Tests are skipped to reduce build time; validate package functionality separately  |
+| Single architecture (`linux/amd64`) | Arch Linux primarily targets x86_64; ARM builds are not currently supported        |
+| Intel One Mono font only            | Font choice is tied to the IPython profile; override via `ipython_config.py`       |
+| Large image sizes                   | Intel oneAPI, PETSc, deal.II, and the Jupyter ecosystem add significant disk usage |
+| `VTK_PACKAGES` unused               | Defined in `python-fenics-dolfinx` and `deal-ii` Dockerfiles but not installed     |
 
 ---
 

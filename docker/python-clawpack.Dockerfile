@@ -4,7 +4,6 @@ FROM ghcr.io/cpp-review-dune/introductory-review/aur AS build
 
 ARG AUR_PACKAGES="\
   python-clawpack \
-  jupyter-octave_kernel \
   "
 
 ARG EXTRA_AUR_PACKAGES="\
@@ -63,18 +62,16 @@ ARG PACKAGES="\
   ffmpeg \
   gemini-cli \
   git \
-  intel-oneapi-basekit \
   jupyterlab-widgets \
   less \
-  petsc \
   python-black \
   python-isort \
   python-ipympl \
   python-jupyter-server-terminals \
-  python-numpy-mkl \
+  python-numpy \
   python-pandas \
   python-pytest \
-  python-scipy-mkl \
+  python-scipy \
   python-threadpoolctl \
   "
 
@@ -92,13 +89,9 @@ RUN curl -s https://gitlab.com/dune-archiso/dune-archiso.gitlab.io/-/raw/main/te
   find /tmp/ ! -name '*.log' -type f -exec rm -f {} + && \
   sudo pacman -Scc <<< Y <<< Y && \
   sudo rm -r /var/lib/pacman/sync/* && \
-  python -m octave_kernel install --user && \
   ipython profile create && \
   echo -e "c.IPythonWidget.font_size = 11\nc.IPythonWidget.font_family = 'Intel One Mono'\nc.IPKernelApp.matplotlib = 'inline'\nc.InlineBackend.figure_format = 'retina'\n" >> ~/.ipython/profile_default/ipython_config.py
 
-ENV MKL_THREADING_LAYER=gnu
-ENV PETSC_DIR=/opt/petsc/linux-c-opt
-ENV PYTHONPATH=$PETSC_DIR/lib
 ENV PYDEVD_DISABLE_FILE_VALIDATION=1
 
 EXPOSE 8888

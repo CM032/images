@@ -37,10 +37,9 @@ A pre-configured environment for **hyperbolic PDEs** with [Clawpack](https://www
 **Included software**
 
 - **Clawpack** — hyperbolic PDE solvers
-- **PETSc** + **Intel oneAPI MKL** — high-performance linear algebra
 - **Octave kernel** for Jupyter (`jupyter-octave_kernel`)
 - **JupyterLab** extensions: `jupyterlab-rise`, `jupyterlab-pytutor`, `jupyter-nbgrader`, `jupyterlab-variableinspector`, `jupyter-server-terminals`
-- **Scientific Python**: `pandas`, `ipympl`, `matplotlib` (retina), `jupyterlab-widgets`, `numpy-mkl`, `scipy-mkl`, `pytest`
+- **Scientific Python**: `pandas`, `ipympl`, `matplotlib` (retina), `jupyterlab-widgets`, `numpy`, `scipy`, `pytest`
 - **Development tools**: `black`, `isort`, `pyupgrade`, `nbqa`, `ffmpeg`, `threadpoolctl`, `bat`, `git`
 - **Font**: Intel One Mono (OTF)
 
