@@ -10,11 +10,9 @@ ARG AUR_PACKAGES="\
 ARG EXTRA_AUR_PACKAGES="\
   jupyter-nbgrader \
   jupyterlab-pytutor \
-  jupyterlab-rise \
   nbqa \
   otf-intel-one-mono \
   python-jupyterlab-variableinspector \
-  pyupgrade \
   "
 
 RUN yay --repo --needed --noconfirm --noprogressbar -Syuq >/dev/null 2>&1 && \
@@ -63,6 +61,7 @@ ARG PACKAGES="\
   blas-openblas \
   gemini-cli \
   git \
+  jupyterlab-rise \
   jupyterlab-widgets \
   less \
   python-black \
@@ -74,6 +73,7 @@ ARG PACKAGES="\
   python-pytest \
   python-scipy-mkl \
   python-threadpoolctl \
+  pyupgrade \
   "
 
 COPY --from=build /tmp/*.log /tmp/
@@ -90,6 +90,7 @@ RUN curl -s https://gitlab.com/dune-archiso/dune-archiso.gitlab.io/-/raw/main/te
   find /tmp/ ! -name '*.log' -type f -exec rm -f {} + && \
   sudo pacman -Scc <<< Y <<< Y && \
   sudo rm -r /var/lib/pacman/sync/* && \
+  echo "alias startJupyter=\"jupyter-lab --port=8888 --no-browser --ip=0.0.0.0 --ServerApp.allow_origin='\$(gp url 8888)' --IdentityProvider.token='' --ServerApp.password=''\"" >> ~/.bashrc && \
   python -m octave_kernel install --user && \
   ipython profile create && \
   echo -e "c.IPythonWidget.font_size = 11\nc.IPythonWidget.font_family = 'Intel One Mono'\nc.IPKernelApp.matplotlib = 'inline'\nc.InlineBackend.figure_format = 'retina'\n" >> ~/.ipython/profile_default/ipython_config.py
