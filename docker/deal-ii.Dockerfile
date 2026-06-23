@@ -4,7 +4,6 @@ FROM ghcr.io/cpp-review-dune/introductory-review/aur AS build
 
 ARG EXTRA_AUR_PACKAGES="\
   jupyter-nbgrader \
-  jupyterlab-pytutor \
   nbqa \
   otf-intel-one-mono \
   python-jupyterlab-variableinspector \

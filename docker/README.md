@@ -53,7 +53,6 @@ Installed in all images:
 | Package                               | Purpose                           |
 | ------------------------------------- | --------------------------------- |
 | `jupyter-nbgrader`                    | Notebook grading                  |
-| `jupyterlab-pytutor`                  | Python tutor integration          |
 | `jupyterlab-rise`                     | Reveal.js slideshows              |
 | `nbqa`                                | Run QA tools on Jupyter notebooks |
 | `otf-intel-one-mono`                  | Intel One Mono font               |

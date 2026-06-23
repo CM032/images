@@ -8,7 +8,6 @@ ARG AUR_PACKAGES="\
 
 ARG EXTRA_AUR_PACKAGES="\
   jupyter-nbgrader \
-  jupyterlab-pytutor \
   nbqa \
   otf-intel-one-mono \
   python-jupyterlab-variableinspector \
