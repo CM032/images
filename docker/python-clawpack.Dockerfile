@@ -55,6 +55,7 @@ USER $USERNAME
 
 ARG PACKAGES="\
   bat \
+  asciinema \
   blas-openblas \
   ffmpeg \
   gemini-cli \

@@ -52,6 +52,7 @@ USER $USERNAME
 ARG PACKAGES="\
   deal-ii \
   ffmpeg \
+  asciinema \
   gemini-cli \
   git \
   jupyterlab-rise \
