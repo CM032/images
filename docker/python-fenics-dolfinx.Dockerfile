@@ -77,6 +77,7 @@ ARG PACKAGES="\
   less \
   pyupgrade \
   yay \
+  tldr \
   "
 
 ARG VTK_PACKAGES="\

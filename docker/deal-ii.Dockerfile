@@ -101,6 +101,7 @@ ARG VTK_PACKAGES="\
   qt5-base \
   verdict \
   yay \
+  tldr \
   "
 
 COPY --from=build /tmp/*.log /tmp/
