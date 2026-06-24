@@ -73,6 +73,7 @@ ARG PACKAGES="\
   python-scipy \
   python-threadpoolctl \
   pyupgrade \
+  yay \
   "
 
 COPY --from=build /tmp/*.log /tmp/

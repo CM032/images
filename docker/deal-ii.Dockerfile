@@ -100,6 +100,7 @@ ARG VTK_PACKAGES="\
   postgresql-libs \
   qt5-base \
   verdict \
+  yay \
   "
 
 COPY --from=build /tmp/*.log /tmp/

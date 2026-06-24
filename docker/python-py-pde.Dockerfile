@@ -55,9 +55,9 @@ RUN ln -s /usr/share/zoneinfo/America/Lima /etc/localtime && \
 USER $USERNAME
 
 ARG PACKAGES="\
+  asciinema \
   bat \
   ffmpeg \
-  asciinema \
   blas-openblas \
   gemini-cli \
   git \
@@ -74,6 +74,7 @@ ARG PACKAGES="\
   python-scipy-mkl \
   python-threadpoolctl \
   pyupgrade \
+  yay \
   "
 
 COPY --from=build /tmp/*.log /tmp/

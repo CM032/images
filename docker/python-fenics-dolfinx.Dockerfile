@@ -50,8 +50,9 @@ RUN ln -s /usr/share/zoneinfo/America/Lima /etc/localtime && \
 USER $USERNAME
 
 ARG PACKAGES="\
-  ffmpeg \
   asciinema \
+  bat \
+  ffmpeg \
   gemini-cli \
   git \
   jupyterlab-rise \
@@ -74,8 +75,8 @@ ARG PACKAGES="\
   xorg-fonts-100dpi \
   xorg-server-xvfb \
   less \
-  bat \
   pyupgrade \
+  yay \
   "
 
 ARG VTK_PACKAGES="\
