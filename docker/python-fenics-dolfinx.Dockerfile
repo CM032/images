@@ -7,6 +7,7 @@ ARG EXTRA_AUR_PACKAGES="\
   nbqa \
   otf-intel-one-mono \
   python-jupyterlab-variableinspector \
+  python-meshio \
   "
 
 RUN yay --repo --needed --noconfirm --noprogressbar -Syuq >/dev/null 2>&1 && \
