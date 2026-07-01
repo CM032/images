@@ -79,6 +79,7 @@ ARG PACKAGES="\
   yay \
   tldr \
   python-fenics-dolfinx \
+  gmsh \
   "
 
 ARG VTK_PACKAGES="\
