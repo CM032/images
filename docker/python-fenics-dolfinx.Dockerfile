@@ -80,6 +80,7 @@ ARG PACKAGES="\
   tldr \
   python-fenics-dolfinx \
   gmsh \
+  python-imageio \
   "
 
 ARG VTK_PACKAGES="\
