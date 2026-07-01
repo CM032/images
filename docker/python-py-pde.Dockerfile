@@ -94,7 +94,8 @@ RUN curl -s https://gitlab.com/dune-archiso/dune-archiso.gitlab.io/-/raw/main/te
   sudo rm -r /var/lib/pacman/sync/* && \
   python -m octave_kernel install --user && \
   ipython profile create && \
-  echo -e "c.IPythonWidget.font_size = 11\nc.IPythonWidget.font_family = 'Intel One Mono'\nc.IPKernelApp.matplotlib = 'inline'\nc.InlineBackend.figure_format = 'retina'\n" >> ~/.ipython/profile_default/ipython_config.py
+  echo -e "c.IPythonWidget.font_size = 11\nc.IPythonWidget.font_family = 'Intel One Mono'\nc.IPKernelApp.matplotlib = 'inline'\nc.InlineBackend.figure_format = 'retina'\n" >> ~/.ipython/profile_default/ipython_config.py && \
+  echo "alias startJupyter=\"jupyter-lab --port=8888 --no-browser --ip=0.0.0.0 --NotebookApp.allow_origin='*' --NotebookApp.token='' --NotebookApp.password=''\"" >> ~/.bashrc
 
 ENV MKL_THREADING_LAYER=gnu
 ENV PYTHONPATH=$PETSC_DIR/lib
