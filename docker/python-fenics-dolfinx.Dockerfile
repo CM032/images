@@ -78,6 +78,7 @@ ARG PACKAGES="\
   pyupgrade \
   yay \
   tldr \
+  python-fenics-dolfinx \
   "
 
 ARG VTK_PACKAGES="\
