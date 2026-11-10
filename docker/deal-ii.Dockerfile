@@ -1,4 +1,4 @@
-# Copyleft (c) June, 2026, Carlos Aznarán
+# Copyleft (c) July, 2026, Carlos Aznarán
 
 FROM ghcr.io/cpp-review-dune/introductory-review/aur AS build
 
